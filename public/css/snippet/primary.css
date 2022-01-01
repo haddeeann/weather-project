@@ -1,0 +1,60 @@
+
+:root {
+    --primary-bg-color: red;
+    --primary-text-color: blue;
+    --accent-color-one: yellow;
+    --accent-color-two: purple;
+    --h1: rgb(205, 215, 224);
+    --h2: orange;
+    --h3: crimson;
+    --h4: brown;
+    --h5: aquamarine;
+    --h6: cornflowerblue;
+    --h-text: #fff;
+    --text: #aaa;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+html {
+    font-size: 16px;
+    color: var(--text);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--h-text);
+    letter-spacing: 0.75px;
+    padding: 5px 0;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+h1 {
+    background-color: var(--h1);
+    font-size: 28px;
+}
+
+h2 {
+    background-color: var(--h2);
+    font-size: 24px;
+}
+
+h3 {
+    background-color: var(--h3);
+    font-size: 20px;
+}
+
+h4 {
+    background-color: var(--h4);
+    font-size: 18px;
+}
+
+h5 {
+    background-color: var(--h5);
+    font-size: 16px;
+}
+
+h6 {
+    background-color: var(--h6);
+    font-size: 16px;
+}
+
+
