@@ -6,10 +6,13 @@ html {
 
 h1, h2, h3, h4, h5, h6 {
     color: #fff;
+    letter-spacing: 0.75px;
+    padding: 5px 0;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 h1 {
-    background-color: aliceblue;
+    background-color: rgb(205, 215, 224);
     font-size: 28px;
 }
 
