@@ -28,6 +28,9 @@ h1, h2, h3, h4, h5, h6 {
     padding: 5px 0;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
+h1, h2, h3, h4, h5, h6, p, div, span {
+    padding: 5px;
+}
 
 h1 {
     background-color: var(--h1);

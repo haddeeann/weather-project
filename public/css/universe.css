@@ -1,5 +1,11 @@
 main {
-    background-color: var(--accent-three);
+    display: flex;
+}
+
+#universe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #inner-universe {
