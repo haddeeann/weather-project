@@ -8,9 +8,11 @@ weatherForm.addEventListener('submit', (event) => {
     let location = document.getElementById('locationInput');
     if(location.value) {
         messageOne.textContent = 'Loading...';
+        messageTwo.textContent = '';
         searchWeather(location.value);
     } else {
         messageOne.textContent = 'Please enter a value in the form field and submit.';
+        messageTwo.textContent = '';
     }
 });
 
@@ -18,11 +20,13 @@ const searchWeather = (location) => {
     fetch(`http://localhost:3000/weather?address=${location}`).then(response => {
         if(!response) {
             messageOne.textContent = 'There is a network connectivity error to get location response';
+            messageTwo.textContent = '';
             return;
         }
         response.json().then(data => {
             if(!data || data.error) {
                 messageOne.textContent = 'Getting weather data from UI did not work';
+                messageTwo.textContent = '';
             } else {
                 messageOne.textContent = '';
                 let weatherObj = {
