@@ -20,39 +20,41 @@ app.use(express.static(publicDir));
 
 const info = (pageTitle) => {
     return {
-        title: 'Weather App',
-        pageTitle: `${pageTitle} Page`,
-        devName: 'Patricia'
+        header: 'Find Out the Weather',
+        pageTitle: `${pageTitle}`,
     }
 }
 
 app.get('', (req, res) => {
-    res.render('index', info('HOME'));
+    res.render('index', {
+        header: 'Find Out the Weather',
+        pageTitle: 'WEATHER',
+    });
 });
 
 app.get('/about', (req, res) => {
-    res.render('about', info('ABOUT'))
+    res.render('about', {
+        header: 'Find Out the Weather',
+        pageTitle: 'ABOUT',
+    });
 });
 
-app.get('/help', (req, res) => {
-    res.render('help', info('HELP'));
-});
-
+// backend point
 app.get('/weather', (req, res) => {
     if(!req.query || !req.query.address) {
-        return res.send('Need to put in an address please.. and note to self, handle this more gracefully next next time');
+        return res.send('Please provide location in url.');
     }
     let addressQuery = req.query ? req.query.address : '';
     geocode(addressQuery, (err, data) => {
         // err is text error message sent
         if(err) {
-            return res.send(err);
+            return res.send('Error in retreving location data.');
         }
 
         forecast(data.latitude, data.longitude, (error, weatherData) => {
             // error is text error message sent
             if(error) {
-                return res.send(error);
+                return res.send('Error in retreiving weather data.');
             }
 
             return res.send(weatherData);
@@ -60,22 +62,8 @@ app.get('/weather', (req, res) => {
     });
 });
 
-app.get('/products', (req, res) => {
-    if(!req.request || !req.request.search) {
-        return res.send('You must provide search term');
-    }
-
-    res.send({
-        products: []
-    });
-})
-
-app.get(['/help/*', '/about/*'], (req, res) => {
-    res.render('universe', info('the UNIVERSE IS OPEN'));
-});
-
 app.get('*', (req, res) => {
-    res.render('universe', info('the UNIVERSE IS OPEN'));
+    res.render('universe', info('This url does not exist.'));
 });
 
 app.listen(3000, () => {

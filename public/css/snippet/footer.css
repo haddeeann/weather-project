@@ -1,4 +1,5 @@
 footer {
-    background-color: orange;
-    color: white;
+    background-color: var(--accent-one);
+    color: var(--primary-text);
+    text-align: center;
 }

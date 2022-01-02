@@ -7,9 +7,9 @@
     padding: 5px;
 }
 
-a {
+#header-nav a {
     text-decoration: none;
-    color: white;
+    color: var(--secondary-text);
     text-transform: upper-case;
     padding: 5px;
 }

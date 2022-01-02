@@ -1,7 +1,8 @@
 
 :root {
     --primary-bg: #f7f7f7;
-    --primary-text: blue;
+    --primary-text: #aaa;
+    --secondary-text: #fff;
     --accent-one: yellow;
     --accent-two: purple;
     --accent-three: pink;
@@ -12,14 +13,12 @@
     --h5: aquamarine;
     --h6: cornflowerblue;
     --h-text: #fff;
-    --text: #aaa;
     font-family: 'Courier New', Courier, monospace;
 }
 
 html {
     font-size: 16px;
-    color: var(--text);
-    background-color: var(--primary-bg);
+    color: var(--primary-text);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -64,14 +63,22 @@ h6 {
 
 body {
     min-height: 100vh;
-    background-color: black;
+    background-color: var(--primary-bg);
     display: flex;
     flex-flow: column;
-    padding: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 main {
     flex-grow: 1;
+}
+
+a {
+    color: var(--primary-text);
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
 }
 
 
