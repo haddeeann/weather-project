@@ -40,6 +40,14 @@ app.get('/weather', (req, res) => {
     res.render('weather', info('WEATHER'));
 });
 
+app.get(['/weather/*', '/help/*', '/about/*'], (req, res) => {
+    res.render('universe', info('the UNIVERSE IS OPEN'));
+});
+
+app.get('*', (req, res) => {
+    res.render('universe', info('the UNIVERSE IS OPEN'));
+});
+
 app.listen(3000, () => {
     console.log('listening on port 3000');
 });

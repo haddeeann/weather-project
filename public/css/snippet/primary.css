@@ -4,6 +4,7 @@
     --primary-text: blue;
     --accent-one: yellow;
     --accent-two: purple;
+    --accent-three: pink;
     --h1: rgb(205, 215, 224);
     --h2: orange;
     --h3: crimson;
@@ -56,6 +57,18 @@ h5 {
 h6 {
     background-color: var(--h6);
     font-size: 16px;
+}
+
+body {
+    min-height: 100vh;
+    background-color: black;
+    display: flex;
+    flex-flow: column;
+    padding: 15px;
+}
+
+main {
+    flex-grow: 1;
 }
 
 

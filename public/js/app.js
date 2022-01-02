@@ -1,4 +1,4 @@
-// console.log('hello client side javascript');
+// client side javascript
 
 class WordCount extends HTMLParagraphElement {
     constructor() {
