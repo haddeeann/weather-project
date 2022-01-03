@@ -4,7 +4,7 @@
   "description": "A sample weather app",
   "main": "./src/app.js",
   "scripts": {
-    "start": "nodemon ./src/app.js -e js,hbs",
+    "start": "nodemon -r ./src/app.js -e js,hbs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -13,6 +13,7 @@
   "author": "HaddeeAnn",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^10.0.0",
     "express": "^4.17.2",
     "hbs": "^4.0.1",
     "request": "^2.88.2"

@@ -1,8 +1,8 @@
 const request = require('request');
-const weather = require('../keys/weather');
+const weather = process.env.WEATHER_KEY;
 
 const forecast = (latitude, longitude, callback) => {
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${weather.key}`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${weather}`;
                  
     request({ url, json: true }, (error, { body }) => {
         if(error) {
