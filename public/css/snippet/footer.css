@@ -1,5 +1,9 @@
 footer {
-    background-color: var(--accent-one);
-    color: var(--primary-text);
+    background-color: var(--accent-three);
+    color: var(--bg-dark-text);
     text-align: center;
+}
+
+footer a {
+    color: var(--bg-dark-text);
 }

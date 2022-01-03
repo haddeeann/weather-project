@@ -61,14 +61,15 @@ const searchWeather = (location) => {
                 weatherDescribe.appendChild(li);
 
                 let labels = {
-                    temp: (data.main.temp - 273.15) * 1.8 + 32,
-                    lowTemp: (data.main.temp_min - 273.15) * 1.8 + 32,
-                    highTemp: (data.main.temp_max -273.15) * 1.8 + 32,
+                    temp: ((data.main.temp - 273.15) * 1.8 + 32).toFixed(),
+                    lowTemp: ((data.main.temp_min - 273.15) * 1.8 + 32).toFixed(),
+                    highTemp: ((data.main.temp_max -273.15) * 1.8 + 32).toFixed(),
                 };
  
                 for(let weather in labels) {
                     li = document.createElement('li');
-                    text = document.createTextNode(`${weather}: ${labels[weather]}`);
+                    text = document.createTextNode(`${weather}: ${labels[weather]}F`);
+
                     li.appendChild(text);
                     weatherLabels.appendChild(li);
                 }

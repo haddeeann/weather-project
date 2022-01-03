@@ -1,70 +1,80 @@
 
 :root {
-    --primary-bg: #f7f7f7;
-    --secondary-bg: #aaa;
-    --primary-text: #aaa;
-    --secondary-text: #fff;
-    --accent-one: yellow;
-    --accent-two: purple;
-    --accent-three: pink;
-    --h1: rgb(205, 215, 224);
-    --h2: orange;
-    --h3: crimson;
-    --h4: brown;
-    --h5: aquamarine;
-    --h6: cornflowerblue;
-    --h-text: #fff;
+    /* primary bg n text */
+    --bg-dark: #22376E;
+    --bg-dark-text: #f7f7f7;
+    /* secondary bg n text */
+    --bg-light: #f7f7f7;
+    --bg-light-text: #22376E;
+    /* pick three accents */
+    --accent-one: #75AFDE;
+    --accent-two: #2468B3;
+    --accent-three: #0E5299;
+    --accent-four: #e4eff8;
+    --accent-five: #F2B33D;
+    --h-text: #f7f7f7;
     font-family: 'Courier New', Courier, monospace;
 }
 
 html {
     font-size: 20px;
-    color: var(--primary-text);
     min-height: 100vh;
+    background-color: var(--bg-light);
+    color: var(-bg-light-text);
 }
 
 h1, h2, h3, h4, h5, h6 {
     color: var(--h-text);
     letter-spacing: 0.75px;
-    padding: 5px 0;
+    padding: 10px 5px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
-h1, h2, h3, h4, h5, h6, p, div, span {
+
+p, div, span {
     padding: 5px;
 }
 
 h1 {
-    background-color: var(--h1);
+    font-size: 28px;
+}
+
+h1, h4 {
+    background-color: var(--accent-one);
     font-size: 28px;
 }
 
 h2 {
-    background-color: var(--h2);
     font-size: 24px;
 }
 
+h2, h5 {
+    background-color: var(--accent-two);
+    font-size: 24px;
+}
+
+h3, h6 {
+    background-color: var(--accent-three);
+}
+
 h3 {
-    background-color: var(--h3);
     font-size: 20px;
 }
 
 h4 {
-    background-color: var(--h4);
     font-size: 18px;
 }
 
 h5 {
-    background-color: var(--h5);
     font-size: 16px;
 }
 
 h6 {
-    background-color: var(--h6);
     font-size: 16px;
 }
 
 body {
-    background-color: var(--primary-bg);
+    background-color: var(--bg-light);
+    color: var(--bg-light-text);
     display: flex;
     flex-flow: column;
     padding-left: 15px;
@@ -77,10 +87,15 @@ main {
 }
 
 a {
-    color: var(--primary-text);
+    color: var(--bg-light-text);
     font-weight: bold;
     text-transform: uppercase;
     text-decoration: none;
+}
+
+.text-accent {
+    color: var(--accent-five);
+    font-weight: bold;
 }
 
 

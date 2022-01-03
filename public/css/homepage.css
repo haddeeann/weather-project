@@ -5,8 +5,9 @@
 }
 
 .weather-areas {
-    background-color: var(--secondary-bg);
-    color: var(--secondary-text);
+    padding-top: 15px;
+    background-color: var(--accent-four);
+    color: var(--bg-light-text);
 }
 
 .weather-areas li, .weather-areas p {
@@ -14,10 +15,10 @@
 }
 
 .weather-areas input, .weather-areas button {
-    outline-color: var(--accent-one);
+    outline-color: var(--accent-five);
     padding: 10px;
-    border: solid 2px var(--accent-three);
     border-radius: 4px;
+    border: 2px solid var(--accent-one);
     margin: 10px 0;
 }
 
