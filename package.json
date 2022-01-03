@@ -4,8 +4,9 @@
   "description": "A sample weather app",
   "main": "./src/app.js",
   "scripts": {
-    "start": "nodemon -r ./src/app.js -e js,hbs",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start-dev": "nodemon -r ./src/app.js -e js,hbs",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/app.js"
   },
   "keywords": [
     "weather"

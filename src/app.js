@@ -8,7 +8,7 @@ const forecast = require('./utils/forecast');
 const publicDir = path.join(__dirname, '../public');
 const viewsPath = path.join(__dirname, '../templates/views');
 const partialsPath = path.join(__dirname, '../templates/partials');
-
+const port = process.env.PORT || 3000;
 const app = express();
 
 // set up hb views and location
@@ -67,6 +67,6 @@ app.get('*', (req, res) => {
     res.render('universe', info('This url does not exist.'));
 });
 
-app.listen(3000, () => {
-    console.log('listening on port 3000');
+app.listen(port, () => {
+    console.log(`listening on port ${port}`);
 });

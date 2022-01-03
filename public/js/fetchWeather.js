@@ -24,7 +24,7 @@ weatherForm.addEventListener('submit', (event) => {
 });
 
 const searchWeather = (location) => {
-    fetch(`http://localhost:3000/weather?address=${location}`).then(response => {
+    fetch(`/weather?address=${location}`).then(response => {
         if(!response) {
             messageOne.textContent = 'There is a network connectivity error to get location response';
             return;
