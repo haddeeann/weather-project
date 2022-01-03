@@ -1,18 +1,25 @@
 
-const weatherForm = document.getElementById('weatherForm');
-let messageOne = document.getElementById('messageOne');
-let messageTwo = document.getElementById('messageTwo');
+const weatherForm = document.getElementById('weather-form');
+let messageOne = document.getElementById('message-one');
+let weatherLocations = document.getElementById('weather-location');
+let weatherDescribe = document.getElementById('weather-description');
+let weatherLabels = document.getElementById('weather-labels');
+
+const resetLabels = () => {
+    weatherLocations.textContent = '';
+    weatherDescribe.textContent = '';
+    weatherLabels.textContent = '';
+}
 
 weatherForm.addEventListener('submit', (event) => {
     event.preventDefault();
-    let location = document.getElementById('locationInput');
+    resetLabels();
+    let location = document.getElementById('location-input');
     if(location.value) {
         messageOne.textContent = 'Loading...';
-        messageTwo.textContent = '';
         searchWeather(location.value);
     } else {
         messageOne.textContent = 'Please enter a value in the form field and submit.';
-        messageTwo.textContent = '';
     }
 });
 
@@ -20,18 +27,15 @@ const searchWeather = (location) => {
     fetch(`http://localhost:3000/weather?address=${location}`).then(response => {
         if(!response) {
             messageOne.textContent = 'There is a network connectivity error to get location response';
-            messageTwo.textContent = '';
             return;
         }
         response.json().then(data => {
             if(!data || data.error) {
                 messageOne.textContent = 'Getting weather data from UI did not work';
-                messageTwo.textContent = '';
             } else {
                 messageOne.textContent = '';
-                let weatherObj = {
-                    weather: data.weather[0].main,
-                    temp: (data.main.temp - 273.15) * 1.8 + 32,
+                // gathering label for a todo later
+                let todo = {
                     lon: data.coord.lon,
                     lat: data.coord.lat,
                     pressure: data.main.pressure,
@@ -41,21 +45,32 @@ const searchWeather = (location) => {
                     sunrise: data.sys.sunrise,
                     sunset: data.sys.sunset,
                     currentTime: '',
-                    visibility: data.visibility,
                     icon: data.weather[0].icon,
-                    weatherDescription: data.weather[0].description,
-                    minTemp: data.main.temp_min,
-                    maxTemp: data.main.temp_max,
+                    visibility: data.visibility,
                     clouds: data.clouds.all,
-                    nameOfPlace: data.name,
-                    country: data.sys.country,
+                }
+
+                let li = document.createElement('li');
+                let text = document.createTextNode(`${data.name} in ${data.sys.country}`);
+                li.appendChild(text);
+                weatherLocations.appendChild(li);
+
+                li = document.createElement('li');
+                text = document.createTextNode(`${data.weather[0].main} / ${data.weather[0].description}`);
+                li.appendChild(text);
+                weatherDescribe.appendChild(li);
+
+                let labels = {
+                    temp: (data.main.temp - 273.15) * 1.8 + 32,
+                    lowTemp: (data.main.temp_min - 273.15) * 1.8 + 32,
+                    highTemp: (data.main.temp_max -273.15) * 1.8 + 32,
                 };
  
-                for(let weather in weatherObj) {
-                    let liElement = document.createElement('li');
-                    let textContent = document.createTextNode(`${weather} is ${weatherObj[weather]}`);
-                    liElement.appendChild(textContent);
-                    messageTwo.appendChild(liElement);
+                for(let weather in labels) {
+                    li = document.createElement('li');
+                    text = document.createTextNode(`${weather}: ${labels[weather]}`);
+                    li.appendChild(text);
+                    weatherLabels.appendChild(li);
                 }
             }
         })

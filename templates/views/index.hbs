@@ -5,19 +5,22 @@
             <link rel='icon' href='/images/favicon.ico' />
             <link rel='stylesheet' href='/css/reset.css' />
             <link rel='stylesheet' href='/css/style.css' />
-            <link ref='stylesheet' href='/css/homepage.css' />
+            <link rel='stylesheet' href='/css/homepage.css' />
         </head>
         <body>
             {{>header}}
-            <main>        
-                <form id='weatherForm'>
-                    <input placeholder='Location' id='locationInput' />
+            <main id='weather'>     
+                <form class='weather-areas' id='weather-form'>
+                    <p>hello... enter a location below to begin </p>
+                    <input placeholder='Location' id='location-input' />
                     <button>Search</button>
                 </form>
-                <area>
-                    <span id='messageOne'></span>
-                    <ul id='messageTwo'></ul>
-                </area>
+                <div class='weather-areas' id='weather-message-area'>
+                    <span id='message-one'></span>
+                    <ul id='weather-location'></ul>
+                    <ul id='weather-description'></ul>
+                    <ul id='weather-labels'></ul>
+                </div>
             </main>
             {{>footer}}
             <script src='/js/app.js'></script>

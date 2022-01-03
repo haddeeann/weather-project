@@ -1,0 +1,30 @@
+#weather {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.weather-areas {
+    background-color: var(--secondary-bg);
+    color: var(--secondary-text);
+}
+
+.weather-areas li, .weather-areas p {
+    padding: 5px;
+}
+
+.weather-areas input, .weather-areas button {
+    outline-color: var(--accent-one);
+    padding: 10px;
+    border: solid 2px var(--accent-three);
+    border-radius: 4px;
+    margin: 10px 0;
+}
+
+.weather-areas button {
+    text-transform: uppercase;
+}
+
+#weather-message-area {
+    flex-grow: 1;
+}
