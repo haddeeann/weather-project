@@ -84,6 +84,7 @@ body {
 
 main {
     flex-grow: 1;
+    padding: 15px;
 }
 
 a {
@@ -98,4 +99,7 @@ a {
     font-weight: bold;
 }
 
+.hidden {
+    display: none;
+}
 

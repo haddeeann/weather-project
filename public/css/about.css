@@ -1,7 +1,15 @@
 #profile-pic {
     border-radius: 50%;
+    border: 2px solid var(--accent-five);
+}
+
+#profile-pic:hover {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    border: 2px solid var(--accent-four);
 }
 
 #about {
     text-align: center;
 }
+

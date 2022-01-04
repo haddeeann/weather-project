@@ -51,12 +51,13 @@ app.get('/weather', (req, res) => {
         if(err) {
             return res.send('Error in retreving location data.');
         }
-
         forecast(data.latitude, data.longitude, (error, weatherData) => {
             // error is text error message sent
             if(error) {
                 return res.send('Error in retreiving weather data.');
             }
+
+            weatherData.location = data.location;
 
             return res.send(weatherData);
         });

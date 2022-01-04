@@ -2,11 +2,11 @@
     text-align: center;
     display: flex;
     flex-direction: column;
+    background-color: var(--accent-four);
 }
 
 .weather-areas {
     padding-top: 15px;
-    background-color: var(--accent-four);
     color: var(--bg-light-text);
 }
 
@@ -28,4 +28,9 @@
 
 #weather-message-area {
     flex-grow: 1;
+}
+
+.degree {
+    margin-left: -15px;
+    padding-left: 0;
 }

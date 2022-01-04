@@ -3,12 +3,17 @@ const weatherForm = document.getElementById('weather-form');
 let messageOne = document.getElementById('message-one');
 let weatherLocations = document.getElementById('weather-location');
 let weatherDescribe = document.getElementById('weather-description');
-let weatherLabels = document.getElementById('weather-labels');
+let temp = document.getElementById('temp');
+let lowtemp = document.getElementById('lowtemp');
+let hightemp = document.getElementById('hightemp');
+let degrees = document.querySelectorAll('.degree');
 
 const resetLabels = () => {
     weatherLocations.textContent = '';
     weatherDescribe.textContent = '';
-    weatherLabels.textContent = '';
+    temp.textContent = '';
+    lowtemp.textContent = '';
+    hightemp.textContent = '';
 }
 
 weatherForm.addEventListener('submit', (event) => {
@@ -51,7 +56,7 @@ const searchWeather = (location) => {
                 }
 
                 let li = document.createElement('li');
-                let text = document.createTextNode(`${data.name} in ${data.sys.country}`);
+                let text = document.createTextNode(`${data.location}`);
                 li.appendChild(text);
                 weatherLocations.appendChild(li);
 
@@ -60,18 +65,16 @@ const searchWeather = (location) => {
                 li.appendChild(text);
                 weatherDescribe.appendChild(li);
 
-                let labels = {
-                    temp: ((data.main.temp - 273.15) * 1.8 + 32).toFixed(),
-                    lowTemp: ((data.main.temp_min - 273.15) * 1.8 + 32).toFixed(),
-                    highTemp: ((data.main.temp_max -273.15) * 1.8 + 32).toFixed(),
-                };
- 
-                for(let weather in labels) {
-                    li = document.createElement('li');
-                    text = document.createTextNode(`${weather}: ${labels[weather]}F`);
+                let temperature = ((data.main.temp - 273.15) * 1.8 + 32).toFixed();
+                let lowTemperature = ((data.main.temp_min - 273.15) * 1.8 + 32).toFixed();
+                let highTemperature = ((data.main.temp_max -273.15) * 1.8 + 32).toFixed();
 
-                    li.appendChild(text);
-                    weatherLabels.appendChild(li);
+                temp.textContent = temperature;
+                lowtemp.innerHTML = lowTemperature;
+                hightemp.innerHTML = highTemperature;
+ 
+                for(let d of degrees) {
+                    d.classList.remove('hidden');
                 }
             }
         })
